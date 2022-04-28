@@ -63,7 +63,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../style/global.scss';
+    @import '../../../style/global.scss';
 
     .menu {
         width: 40%;
@@ -89,7 +89,7 @@
                         padding: 2px 5px;
                         border-radius: 50%;
                         color: $text-primary;
-                        background-color: #f6f7f2;
+                        background-color: $bg-icons-primary;
                         font-family: sans-serif;
                         font-size: 0.7em;
                     }

@@ -3,17 +3,23 @@
     <header>
       <HeaderPizza />
     </header>
+
+      <MainPizza />
+
+      
   </div>
 </template>
 
 <script>
   import HeaderPizza from './components/HeaderPizza.vue';
+  import MainPizza from './components/MainPizza.vue';
 
   export default {
     name: 'App',
 
     components: {
       HeaderPizza,
+      MainPizza,
     },
 
   }
@@ -42,6 +48,10 @@
       &:active {
         transform: scale(1.1);
       }
+    }
+
+    .bg-white {
+      background-color: $white;
     }
 
   #app {

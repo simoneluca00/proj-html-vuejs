@@ -12,9 +12,9 @@
 </template>
 
 <script>
-    import NavLeftMenu from './partials/NavLeftMenu.vue'
-    import NavRightMenu from './partials/NavRightMenu.vue'
-    import LogoPizza from './partials/LogoPizza.vue'
+    import NavLeftMenu from './partials/HeaderChildren/NavLeftMenu.vue'
+    import NavRightMenu from './partials/HeaderChildren/NavRightMenu.vue'
+    import LogoPizza from './partials/HeaderChildren/LogoPizza.vue'
 
     export default {
         name: 'HeaderPizza',

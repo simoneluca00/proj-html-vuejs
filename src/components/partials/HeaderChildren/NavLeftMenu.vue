@@ -49,7 +49,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/global.scss';
+  @import '../../../style/global.scss';
 
   .menu {
     width: 35%;
