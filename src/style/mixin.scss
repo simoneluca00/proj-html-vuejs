@@ -1,4 +1,4 @@
-@mixin compileFlex ($justifyCont, $alignItems, $wrap) {
+@mixin compileFlex ($wrap, $justifyCont, $alignItems) {
     display: flex;
     flex-wrap: $wrap;
     justify-content: $justifyCont;

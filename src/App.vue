@@ -1,18 +1,60 @@
 <template>
-  <div>
-    
+  <div id="app">
+    <header>
+      <HeaderPizza />
+    </header>
   </div>
 </template>
 
 <script>
+  import HeaderPizza from './components/HeaderPizza.vue';
 
-export default {
-  name: 'App',
-  components: {
+  export default {
+    name: 'App',
+
+    components: {
+      HeaderPizza,
+    },
+
   }
-}
 </script>
 
 <style lang="scss">
+  @import './style/global.scss';
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.04em;
+  }
+
+  // ANCHOR UTILITY
+    .btn {
+      border: none;
+      text-transform: uppercase;
+      font-size: 1em;
+      padding: 8px 20px;
+      cursor: pointer;
+
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+
+  #app {
+    // il background stellato sull'intero "body" perchè si ripete in più sezioni
+    background: $bg-dark-stars;
+
+    header {
+      padding: 20px 0;
+    }
+
+    .btn-primary {
+      background-color: $bg-btn-primary;
+      color: $white;
+    }
+  }
 </style>
