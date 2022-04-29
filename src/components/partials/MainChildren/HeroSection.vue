@@ -2,8 +2,7 @@
     <section id="hero">
         <div class="slider">
             <!-- slider con path bg e img dinamico in base al "currentIndex" e il nome delle singole immagini -->
-            <div class="singleImage"
-                :style="{ backgroundImage: 'url(' + require('@/assets/img/'+ pathBgString) + ')' }"
+            <div class="singleImage" :style="{ backgroundImage: 'url(' + require('@/assets/img/'+ pathBgString) + ')' }"
                 @mouseover="stopSlider" @mouseout="startSlide">
                 <img :src="require('@/assets/img/' + pathImageString)" alt="pizza slice">
             </div>
@@ -17,9 +16,12 @@
         </div>
 
         <div class="heroCards">
-            <!-- v-for con path dinamico per le immagini -->
-            <div v-for="i in 4" :key="i" class="hCard">
-                <img :src="require('@/assets/img/heroCard' + i + '.jpg')" alt="">
+            <!-- v-for con path dinamico per le immagini (cards sotto lo slider) -->
+            <div v-for="i in 4" :key="i" class="hCard" :class="[i != 4 ? 'mr-5' : '']" @mouseover="showByIndex = i" @mouseout="showByIndex = null">
+                <img :src="require('@/assets/img/heroCard' + i + '.jpg')" alt="hero card" :class="[showByIndex === i ? 'opacity-6' : '']">
+                <div v-show="showByIndex === i">
+                    <font-awesome-icon icon="fa-regular fa-eye" />
+                </div>
             </div>
         </div>
     </section>
@@ -31,9 +33,13 @@
 
         data() {
             return {
+                // data per lo slider
                 timer: null,
                 currentIndex: 1,
                 imagesCount: 3,
+
+                // data per hover sulle hero cards (sotto lo slider)
+                showByIndex: null,
             }
         },
 
@@ -73,12 +79,12 @@
         computed: {
 
             // genera path dinamico in per immagine di background
-            pathBgString(){
+            pathBgString() {
                 return `hero${this.currentIndex}a.png`
             },
-            
+
             // genera path dinamico in per immagine centrale (trancio)
-            pathImageString(){
+            pathImageString() {
                 return `hero${this.currentIndex}b.png`
             },
 
@@ -90,8 +96,14 @@
 <style lang="scss">
     @import '../../../style/global.scss';
 
+    .opacity-6 {
+        opacity: 0.6;
+    }
+
     #hero {
         .slider {
+            position: relative;
+            padding-bottom: 40px;
 
             .singleImage {
                 @include compileFlex(nowrap, center, center);
@@ -99,7 +111,6 @@
                 background-position: center;
                 padding: 20px 0;
                 height: 65vh;
-                position: relative;
 
 
                 img {
@@ -116,12 +127,12 @@
                 border-top-left-radius: 68px;
                 border-top-right-radius: 68px;
 
-                a{
+                a {
                     color: $text-primary;
                     text-decoration: none;
                     position: relative;
                     top: 5px;
-                } 
+                }
             }
 
             .prev {
@@ -139,14 +150,33 @@
         .heroCards {
             @include compileFlex(nowrap, center, center);
             background-color: $white;
-            padding: 5px;
+            padding-top: 5px;
 
             .hCard {
                 width: 25%;
-                padding: 5px;
-                
+                position: relative;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
                 img {
                     width: 100%;
+                }
+
+                .fa-eye {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $white;
+                    background-color: $bg-btn-primary;
+                    padding: 20px;
+                    border-radius: 50%;
+
+                    &:hover {
+                        padding: 25px;
+                    }
                 }
             }
         }

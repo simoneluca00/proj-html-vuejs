@@ -54,6 +54,10 @@
       background-color: $white;
     }
 
+    .mr-5 {
+      margin-right: 5px;
+    }
+
   #app {
     // il background stellato sull'intero "body" perchè si ripete in più sezioni
     background: $bg-dark-stars;
