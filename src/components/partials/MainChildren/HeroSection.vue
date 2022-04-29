@@ -117,34 +117,6 @@
                     height: 100%;
                 }
             }
-
-            .prev,
-            .next {
-                position: absolute;
-                top: 40%;
-                background-color: $white;
-                padding: 10px 20px;
-                border-top-left-radius: 68px;
-                border-top-right-radius: 68px;
-
-                a {
-                    color: $text-primary;
-                    text-decoration: none;
-                    position: relative;
-                    top: 5px;
-                }
-            }
-
-            .prev {
-                left: -10px;
-                transform: rotate(90deg);
-            }
-
-            .next {
-                right: -10px;
-                transform: rotate(270deg);
-            }
-
         }
 
         .heroCards {
