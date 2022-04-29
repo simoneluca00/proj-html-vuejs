@@ -5,6 +5,7 @@
         <!-- tutte le sezioni presenti in questo div hanno il bg white -->
         <div class="bg-white">
             <TestimonialsSection />
+            <SpecialsSection />
         </div>
     </main>
 </template>
@@ -12,6 +13,7 @@
 <script>
     import HeroSection from './partials/MainChildren/HeroSection.vue';
     import TestimonialsSection from './partials/MainChildren/TestimonialsSection.vue';
+    import SpecialsSection from './partials/MainChildren/SpecialsSection.vue';
 
     export default {
         name: 'MainPizza',
@@ -19,6 +21,7 @@
         components: {
             HeroSection,
             TestimonialsSection,
+            SpecialsSection,
         },
     }
 </script>

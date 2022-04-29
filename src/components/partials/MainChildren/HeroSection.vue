@@ -19,6 +19,8 @@
             <!-- v-for con path dinamico per le immagini (cards sotto lo slider) -->
             <div v-for="i in 4" :key="i" class="hCard" :class="[i != 4 ? 'mr-5' : '']" @mouseover="showByIndex = i" @mouseout="showByIndex = null">
                 <img :src="require('@/assets/img/heroCard' + i + '.jpg')" alt="hero card" :class="[showByIndex === i ? 'opacity-6' : '']">
+
+                <!-- effetto all'hover basato sul v-show e la variabile "showByIndex" -->
                 <div v-show="showByIndex === i">
                     <font-awesome-icon icon="fa-regular fa-eye" />
                 </div>

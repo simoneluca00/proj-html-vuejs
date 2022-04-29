@@ -40,12 +40,10 @@
 
         .menu {
             @include compileFlex(nowrap, space-between, center);
-            // width: 38%;
 
             ul.links {
                 @include compileFlex(nowrap, space-between, center);
                 list-style-type: none;
-                // width: 40%;
             }
                 li {
                     @include compileFlex(nowrap, initial, center);
@@ -53,6 +51,7 @@
                     a {
                         text-decoration: none;
                         color: $white;
+                        font-size: 0.9em;
                     }
                 }
 

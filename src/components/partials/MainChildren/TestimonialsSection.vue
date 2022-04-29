@@ -3,13 +3,14 @@
         <div class="slider">
             <div class="slider-content">
                 <img src="../../../assets/img/double-quotes.png" alt="double quotes" class="double-quotes" />
+
+                <!-- immagine corrente basata sul "currentIndex" che, essendo dinamico, va a sostituire l'indice per l'array che contiene le recensioni -->
                 <p class="review">
-                    <!-- <span class="blockquoteOpen">“</span> -->
                     “ {{testimonials[currentIndex].review}} ”
-                    <!-- <span class="blockquoteClose">"</span> -->
                 </p>
                 <p class="paper">{{testimonials[currentIndex].paper}}</p>
 
+                <!-- icona pizza -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 18 23" class="slice-icon">
                     <g fill="#D2401E">
                         <path
@@ -19,6 +20,7 @@
                     </g>
                 </svg>
 
+                <!-- puntini che corrispondono all'immagine corrente (ternario per dinamicizzare la classe dell'immagine corrente) -->
                 <div class="imgDots">
                     <button class="dot" :class="(i == currentIndex ? 'currentDot': '') " v-for="(item, i) in testimonials"
                         :key="'a' + i" @click="clickDots(i)">
@@ -26,6 +28,7 @@
                 </div>
             </div>
 
+            <!-- pseudo-link per andare avanti o indietro con le immagini -->
             <div class="prev">
                 <a @click.prevent="prev" href="">prev</a>
             </div>
@@ -77,6 +80,7 @@
                 }
             },
 
+            // quando si clicca sul singolo puntino il "currentIndex" diventa uguale alll'indice del puntino cliccato
             clickDots(indexImage) {
                 this.currentIndex = indexImage;
             }
@@ -91,7 +95,7 @@
     #testimonials {
 
         .slider {
-            background: $bg-paperReviews url('../../../assets/img/h3-testimonials-bckgrnd.jpg') no-repeat bottom center;
+            background: $bg-icons-primary url('../../../assets/img/h3-testimonials-bckgrnd.jpg') no-repeat bottom center;
             height: 60vh;
             position: relative;
 
@@ -100,7 +104,7 @@
                 @include compileFlex (nowrap, center, center);
                 flex-direction: column;
                 height: 100%;
-                width: 40%;
+                width: 42%;
                 margin: 0 auto;
                 text-align: center;
 
@@ -113,13 +117,14 @@
                     line-height: 1.4em;
                     margin-top: 40px;
                     color: $text-dark;
-                    font-size: 1.5em;
+                    font-size: 1.1em;
+                    font-weight: bold;
                 }
 
                 .paper {
                     color: $text-primary;
                     font-size: 0.9em;
-                    margin-top: 5px;
+                    margin-top: 10px;
                 }
 
                 .slice-icon {
@@ -152,6 +157,14 @@
                 .currentDot {
                     background-color: $bg-camel;
                 }
+            }
+
+            .next {
+                right: -19px;
+            }
+
+            .prev {
+                left: -17px;
             }
 
         }
