@@ -27,15 +27,15 @@
 
 <style lang="scss">
   @import './style/global.scss';
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
   }
 
   html {
@@ -53,6 +53,16 @@
         transform: scale(1.1);
       }
     }
+
+  .slice-icon-circle {
+    position: absolute;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $bg-icons-primary;
+    border: 10px solid $bg-icons-primary;
+  }
 
     .bg-white {
       background-color: $white;

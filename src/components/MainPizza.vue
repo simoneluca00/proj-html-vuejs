@@ -6,6 +6,7 @@
         <div class="bg-white">
             <TestimonialsSection />
             <SpecialsSection />
+            <MosaicPizza />
         </div>
     </main>
 </template>
@@ -14,6 +15,7 @@
     import HeroSection from './partials/MainChildren/HeroSection.vue';
     import TestimonialsSection from './partials/MainChildren/TestimonialsSection.vue';
     import SpecialsSection from './partials/MainChildren/SpecialsSection.vue';
+    import MosaicPizza from './partials/MainChildren/MosaicPizza.vue';
 
     export default {
         name: 'MainPizza',
@@ -22,6 +24,7 @@
             HeroSection,
             TestimonialsSection,
             SpecialsSection,
+            MosaicPizza,
         },
     }
 </script>
@@ -47,12 +50,10 @@
     }
 
     .prev {
-        left: -10px;
         transform: rotate(90deg);
     }
 
     .next {
-        right: -10px;
         transform: rotate(270deg);
     }
 </style>

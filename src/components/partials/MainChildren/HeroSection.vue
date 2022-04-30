@@ -119,6 +119,14 @@
                     height: 100%;
                 }
             }
+
+            .prev {
+                left: -14px
+            }
+
+            .next {
+                right: -14px;
+            }
         }
 
         .heroCards {
