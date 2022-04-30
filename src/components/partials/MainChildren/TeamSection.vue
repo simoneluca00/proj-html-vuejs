@@ -5,9 +5,9 @@
 
             <!-- informazioni del singolo membro che compaiono all'hover sull'immagine -->
             <div class="info-member">
-                <h2>{{element.name}}</h2>
+                <h2 class="fw-500">{{element.name}}</h2>
 
-                <span>{{element.role}}</span>
+                <span class="fw-300">{{element.role}}</span>
 
                 <div class="social-media">
 
@@ -132,13 +132,8 @@
                 color: $white;
                 cursor: default;
 
-                h2 {
-                    font-weight: 500;
-                }
-
                 span {
                     text-transform: initial;
-                    font-weight: 300;
                     font-size: 1.2em;
                 }
 

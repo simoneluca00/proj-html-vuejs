@@ -153,7 +153,7 @@
                 }
 
                 .currentDot {
-                    background-color: $bg-camel;
+                    background-color: $bg-slider-dots;
                 }
             }
 

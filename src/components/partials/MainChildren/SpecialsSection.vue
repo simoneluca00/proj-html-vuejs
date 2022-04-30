@@ -8,21 +8,21 @@
         <div class="text-specials">
             <div class="combos">
                 <h2>specials*</h2>
-                <p class="main-caption">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesent ut.</p>
+                <p class="main-caption fw-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesent ut.</p>
 
                 <!-- v-for che stampa dinamicamente le singole combo possibili -->
                 <div class="combo-list" v-for="(item,i) in specials" :key="i">
                     <div>
-                        <span class="combo-price">
+                        <span class="combo-price fw-500">
                             {{item.price}}
                         </span>
                     </div>
 
                     <div>
-                        <span class="combo-name">
+                        <span class="combo-name fw-500">
                             {{item.name}}
                         </span>
-                        <p class="sub-caption">{{item.caption}}</p>
+                        <p class="sub-caption fw-300">{{item.caption}}</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,6 @@
 
                 p {
                     text-transform: initial;
-                    font-weight: 300;
                 }
 
                 p.main-caption {
@@ -118,7 +117,6 @@
                     .combo-price,
                     .combo-name {
                         font-size: 1.4em;
-                        font-weight: 500;
                     }
 
                     .sub-caption {

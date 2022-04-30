@@ -72,6 +72,26 @@
       margin-right: 5px;
     }
 
+    .text-center {
+      text-align: center;
+    }
+
+    .fw-300 {
+      font-weight: 300;
+    }
+
+    .fw-400 {
+      font-weight: 400;
+    }
+
+    .fw-500 {
+      font-weight: 500;
+    }
+
+    .fw-700 {
+      font-weight: 700;
+    }
+
   #app {
     // il background stellato sull'intero "body" perchè si ripete in più sezioni
     background: $bg-dark-stars;

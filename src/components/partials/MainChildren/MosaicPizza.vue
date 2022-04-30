@@ -19,7 +19,7 @@
     <div class="part8 centerX"></div>
     <div class="part9 side"></div>
 
-    <p>go ahead and <br>
+    <p class="fw-500">go ahead and <br>
       build your <br>
       own pizza <br>
       we won’t <br>
@@ -126,7 +126,6 @@
       top: 22%;
       color: $white;
       font-size: 3em;
-      font-weight: 500;
       letter-spacing: 0.02em;
       line-height: 1.15em;
     }
