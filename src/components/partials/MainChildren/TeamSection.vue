@@ -1,7 +1,7 @@
 <template>
     <section id="team">
         <div class="team-member" v-for="(element,i) in team" :key="i">
-            <img :src="require('../../../assets/img/' + element.image + '.jpg')" :alt="'foto di ' + element.name ">
+            <img :src="require('@/assets/img/' + element.image + '.jpg')" :alt="'foto di ' + element.name ">
 
             <!-- informazioni del singolo membro che compaiono all'hover sull'immagine -->
             <div class="info-member">

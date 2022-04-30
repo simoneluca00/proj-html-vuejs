@@ -8,6 +8,7 @@
             <SpecialsSection />
             <MosaicPizza />
             <TeamSection />
+            <ClientsSection />
         </div>
     </main>
 </template>
@@ -18,6 +19,7 @@
     import SpecialsSection from './partials/MainChildren/SpecialsSection.vue';
     import MosaicPizza from './partials/MainChildren/MosaicPizza.vue';
     import TeamSection from './partials/MainChildren/TeamSection.vue';
+    import ClientsSection from './partials/MainChildren/ClientsSection.vue';
 
     export default {
         name: 'MainPizza',
@@ -28,6 +30,7 @@
             SpecialsSection,
             MosaicPizza,
             TeamSection,
+            ClientsSection,
         },
     }
 </script>
