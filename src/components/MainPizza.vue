@@ -7,6 +7,7 @@
             <TestimonialsSection />
             <SpecialsSection />
             <MosaicPizza />
+            <TeamSection />
         </div>
     </main>
 </template>
@@ -16,6 +17,7 @@
     import TestimonialsSection from './partials/MainChildren/TestimonialsSection.vue';
     import SpecialsSection from './partials/MainChildren/SpecialsSection.vue';
     import MosaicPizza from './partials/MainChildren/MosaicPizza.vue';
+    import TeamSection from './partials/MainChildren/TeamSection.vue';
 
     export default {
         name: 'MainPizza',
@@ -25,6 +27,7 @@
             TestimonialsSection,
             SpecialsSection,
             MosaicPizza,
+            TeamSection,
         },
     }
 </script>

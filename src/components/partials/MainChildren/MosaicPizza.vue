@@ -50,6 +50,7 @@
     @include compileFlex(wrap, initial, initial);
     height: 60vh;
     position: relative;
+    padding-bottom: 5px;
 
     div {
       background-image: url('../../../assets/img/h3-background-img.jpg');

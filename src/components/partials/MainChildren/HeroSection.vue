@@ -147,10 +147,8 @@
                 }
 
                 .fa-eye {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
+                    @include absoluteCenter;
+
                     color: $white;
                     background-color: $bg-btn-primary;
                     padding: 20px;
