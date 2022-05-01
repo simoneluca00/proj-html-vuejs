@@ -88,16 +88,19 @@
       font-weight: 500;
     }
 
+    .fw-600 {
+      font-weight: 600;
+    }
+
     .fw-700 {
       font-weight: 700;
     }
 
   #app {
-    // il background stellato sull'intero "body" perchè si ripete in più sezioni
-    background: $bg-dark-stars;
 
     header {
       padding: 20px 0;
+      background: $bg-dark-stars;
     }
 
     .btn-primary {

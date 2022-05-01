@@ -11,6 +11,8 @@
             <ClientsSection />
             <MenuSection />
         </div>
+
+        <EventsSection />
     </main>
 </template>
 
@@ -22,6 +24,7 @@
     import TeamSection from './partials/MainChildren/TeamSection.vue';
     import ClientsSection from './partials/MainChildren/ClientsSection.vue';
     import MenuSection from './partials/MainChildren/MenuSection.vue';
+    import EventsSection from './partials/MainChildren/EventsSection.vue';
 
     export default {
         name: 'MainPizza',
@@ -34,6 +37,7 @@
             TeamSection,
             ClientsSection,
             MenuSection,
+            EventsSection,
         },
     }
 </script>

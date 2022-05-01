@@ -103,6 +103,8 @@
     }
 
     #hero {
+        background: $bg-dark-stars;
+        
         .slider {
             position: relative;
             padding-bottom: 40px;
