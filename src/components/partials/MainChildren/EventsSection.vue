@@ -104,7 +104,7 @@
             .events-list {
                 display: flex;
                 flex-direction: column;
-                padding: 25px 0;
+                padding: 50px 0;
                 width: 75%;
                 margin: 0 auto;
                 height: 90%;
@@ -125,10 +125,11 @@
 
                 ul {
                     list-style-type: none;
+                    flex-grow: 1;
 
                     .single-event {
                         display: flex;
-                        width: 85%;
+                        width: 75%;
                         padding: 30px 0;
 
                         .event-date {
@@ -158,6 +159,7 @@
                                 margin-bottom: 5px;
                                 color: $text-events;
                                 font-size: 1.4em;
+                                width: 370px;
                             }
 
                             .event-location {

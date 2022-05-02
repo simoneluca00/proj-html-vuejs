@@ -32,7 +32,7 @@
           },
           {
             name: 'pages',
-            url: '#pages',
+            url: '#footer-info',
             icon: null,
           },
           {

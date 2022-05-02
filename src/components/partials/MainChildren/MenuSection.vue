@@ -178,7 +178,7 @@
         }
 
         .slice-icon-circle {
-            top: 25%;
+            top: 30%;
         }
     }
 </style>

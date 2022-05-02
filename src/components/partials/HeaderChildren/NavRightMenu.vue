@@ -47,12 +47,12 @@
                     },
                     {
                         name: 'blog',
-                        url: '#blog',
+                        url: '#testimonials',
                         icon: null,
                     },
                     {
                         name: 'landing',
-                        url: '#menu',
+                        url: '#team',
                         icon: null,
                     },
                 ],

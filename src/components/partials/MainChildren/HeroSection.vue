@@ -159,6 +159,7 @@
 
                     &:hover {
                         padding: 25px;
+                        font-size: 1.2em;
                     }
                 }
             }

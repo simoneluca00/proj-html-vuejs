@@ -6,6 +6,7 @@
 
       <MainPizza />
 
+      <FooterPizza />
       
   </div>
 </template>
@@ -13,6 +14,7 @@
 <script>
   import HeaderPizza from './components/HeaderPizza.vue';
   import MainPizza from './components/MainPizza.vue';
+  import FooterPizza from './components/FooterPizza.vue';
 
   export default {
     name: 'App',
@@ -20,6 +22,7 @@
     components: {
       HeaderPizza,
       MainPizza,
+      FooterPizza
     },
 
   }
@@ -51,6 +54,7 @@
 
       &:active {
         transform: scale(0.9);
+        font-size: 0.95em;
       }
     }
 

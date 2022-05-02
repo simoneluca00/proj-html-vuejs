@@ -82,6 +82,8 @@
                     text-transform: capitalize;
                     color: $text-input;
                     font-family: sans-serif;
+                    outline: none;
+                    border: 1.5px solid #1F1F1F;
 
 
                     &::placeholder {
