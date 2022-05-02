@@ -13,6 +13,9 @@
         </div>
 
         <EventsSection />
+        
+        <BookingSection />
+        
     </main>
 </template>
 
@@ -25,6 +28,7 @@
     import ClientsSection from './partials/MainChildren/ClientsSection.vue';
     import MenuSection from './partials/MainChildren/MenuSection.vue';
     import EventsSection from './partials/MainChildren/EventsSection.vue';
+    import BookingSection from './partials/MainChildren/BookingSection.vue';
 
     export default {
         name: 'MainPizza',
@@ -38,6 +42,7 @@
             ClientsSection,
             MenuSection,
             EventsSection,
+            BookingSection,
         },
     }
 </script>

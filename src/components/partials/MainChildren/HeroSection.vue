@@ -115,6 +115,7 @@
                 background-position: center;
                 padding: 20px 0;
                 height: 65vh;
+                transition: all .5s;
 
 
                 img {

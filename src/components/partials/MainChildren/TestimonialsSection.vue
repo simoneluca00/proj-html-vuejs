@@ -22,8 +22,8 @@
 
                 <!-- puntini che corrispondono all'immagine corrente (ternario per dinamicizzare la classe dell'immagine corrente) -->
                 <div class="imgDots">
-                    <button class="dot" :class="(i == currentIndex ? 'currentDot': '') " v-for="(item, i) in testimonials"
-                        :key="'a' + i" @click="clickDots(i)">
+                    <button class="dot" :class="(i == currentIndex ? 'currentDot': '') "
+                        v-for="(item, i) in testimonials" :key="'a' + i" @click="clickDots(i)">
                     </button>
                 </div>
             </div>

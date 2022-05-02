@@ -102,13 +102,17 @@
             height: 100%;
 
             .events-list {
-                // @include compileFlex(initial, initial, flex-start);
                 display: flex;
                 flex-direction: column;
-                padding: 30px 0;
+                padding: 25px 0;
                 width: 75%;
                 margin: 0 auto;
                 height: 90%;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar{
+                    display: none;
+                }
 
                 h5 {
                     color: $text-dark-primary;
@@ -123,7 +127,6 @@
                     list-style-type: none;
 
                     .single-event {
-                        // @include compileFlex(initial, flex-start, initial);
                         display: flex;
                         width: 85%;
                         padding: 30px 0;
