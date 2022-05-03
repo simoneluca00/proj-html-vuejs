@@ -22,22 +22,22 @@
             <ul class="products">
                 <li class="singleProduct" v-for="(element,i) in products" :key="i">
 
-                    <!-- img pizza -->
+                    <!-- NOTE img pizza -->
                     <img :src="require('@/assets/img/'+ element.image + '.png')" :alt="'pizza ' + element.name">
 
-                    <!-- nome pizza -->
+                    <!-- NOTE nome pizza -->
                     <h4 class="productName fw-500">{{element.name}}</h4>
 
                     <div>
-                        <!-- condizione per controllare se è presente uno sconto sul prodotto -->
+                        <!--  NOTE condizione per controllare se è presente uno sconto sul prodotto -->
                         <span v-if="element.initialPrice !== null" class="initialPrice">{{element.initialPrice}}</span>
 
-                        <!-- prezzo attuale del prodotto -->
+                        <!-- NOTE prezzo attuale del prodotto -->
                         <span class="currentPrice">{{element.currentPrice}}</span>
                     </div>
 
-                    <!-- condizione per etichetta SOLD sulla base di una variabile booleana presente nell'oggetto() -->
-                    <div v-if="element.sold" class="soldProduct">sold</div>
+                    <!-- NOTE condizione per etichetta SOLD sulla base di una variabile booleana presente nell'oggetto() -->
+                    <div v-show="element.sold" class="soldProduct">sold</div>
                 </li>
             </ul>
 
@@ -62,36 +62,36 @@
                     {
                         name: 'fiori di zucca',
                         image: 'h3-product-img-2a',
-                        initialPrice: null,
                         currentPrice: '$30.00',
-                        sold: false,
+                        initialPrice: null,
+                        sold: true,
                     },
                     {
                         name: 'valdostana',
                         image: 'h3-product-img-3a',
-                        initialPrice: null,
                         currentPrice: '$7.00 - $50.00',
-                        sold: true,
+                        initialPrice: null,
+                        sold: false,
                     },
                     {
                         name: 'pizza tartufata',
                         image: 'h3-product-img-4a',
-                        initialPrice: null,
                         currentPrice: '$45.00',
+                        initialPrice: null,
                         sold: false,
                     },
                     {
                         name: 'francescana',
                         image: 'h3-product-img-5a',
-                        initialPrice: null,
                         currentPrice: '$25.00',
-                        sold: false,
+                        initialPrice: '$35.00',
+                        sold: true,
                     },
                     {
                         name: 'campagnola',
                         image: 'h3-product-img-6a',
-                        initialPrice: null,
                         currentPrice: '$50.00 - $95.00',
+                        initialPrice: null,
                         sold: false,
                     },
                 ]
@@ -102,7 +102,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #menu {
         padding: 70px 0;
@@ -121,7 +121,7 @@
 
         .main-caption {
             color: #8F8F8F;
-            width: 30%;
+            max-width: 450px;
             margin: 0 auto;
             text-transform: initial;
             font-family: sans-serif;
@@ -131,13 +131,12 @@
         .products {
             @include compileFlex(nowrap, space-around, center);
             margin-top: 80px;
-            list-style-type: none;
 
             .singleProduct {
                 @include compileFlex(initial, center, center);
-                position: relative;
-                width: 150px;
                 flex-direction: column;
+                width: 150px;
+                position: relative;
 
                 img {
                     width: 100%;

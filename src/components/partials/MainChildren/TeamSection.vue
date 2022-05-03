@@ -1,9 +1,10 @@
 <template>
     <section id="team">
+        <!-- NOTE v-for in base ad un array per stampare img e info di ogni membro del team -->
         <div class="team-member" v-for="(element,i) in team" :key="i">
             <img :src="require('@/assets/img/' + element.image + '.jpg')" :alt="'foto di ' + element.name ">
 
-            <!-- informazioni del singolo membro che compaiono all'hover sull'immagine -->
+            <!-- NOTE informazioni del singolo membro che compaiono all'hover sull'immagine -->
             <div class="info-member">
                 <h2 class="fw-500">{{element.name}}</h2>
 
@@ -95,7 +96,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #team {
         @include compileFlex(wrap, initial, center);
@@ -105,7 +106,7 @@
             position: relative;
 
             &:hover img {
-                opacity: 0.4;
+                opacity: 0.6;
             }
 
             &:hover .info-member {
@@ -120,8 +121,11 @@
             }
 
             .info-member {
-                @include compileFlex(wrap, center, center);
+                // centrare il div che compare all'hover
                 @include absoluteCenter;
+
+                // centrare le info presenti nel div centrato
+                @include compileFlex(wrap, center, center);
 
                 flex-direction: column;
                 transition: .7s ease;

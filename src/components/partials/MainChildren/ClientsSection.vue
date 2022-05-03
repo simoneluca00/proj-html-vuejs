@@ -9,14 +9,12 @@
 </template>
 
 <script>
-
     export default {
         name: 'ClientsSection',
 
         data() {
             return {
-                clients: [
-                    {
+                clients: [{
                         name: 'Big Cheese',
                         logo: 'h1-clients-img-1'
                     },
@@ -44,7 +42,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #clients {
         background-color: $bg-icons-primary;
@@ -52,7 +50,7 @@
 
         .container-clients {
             @include compileFlex(wrap, initial, center);
-            
+
             width: 70%;
             margin: 0 auto;
 

@@ -4,8 +4,18 @@
     <div class="part2 centerX"></div>
     <div class="part3 side"></div>
     <div class="part4 side centerY"></div>
-    <div class="part5 centerX"></div>
+
+    <div class="part5 centerX">
+      <p class="fw-500">go ahead and <br>
+        build your <br>
+        own pizza <br>
+        we won’t <br>
+        judge!
+      </p>
+    </div>
+
     <div class="part6 side centerY">
+      <!-- pizza-icon -->
       <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 18 23" class="slice-icon-circle">
         <g fill="#D2401E">
           <path
@@ -15,17 +25,10 @@
         </g>
       </svg>
     </div>
+
     <div class="part7 side"></div>
     <div class="part8 centerX"></div>
     <div class="part9 side"></div>
-
-    <p class="fw-500">go ahead and <br>
-      build your <br>
-      own pizza <br>
-      we won’t <br>
-      judge!
-    </p>
-
 
   </section>
 </template>
@@ -44,30 +47,32 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../style/global.scss';
+  @import '@/style/global.scss';
 
   #container-mosaic {
-    @include compileFlex(wrap, initial, initial);
-    height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    height: 550px;
+    min-height: 550px;
     position: relative;
     padding-bottom: 5px;
 
     div {
-      background-image: url('../../../assets/img/h3-background-img.jpg');
+      background-image: url('@/assets/img/h3-background-img.jpg');
     }
 
-    // immagini nei 4 angoli
+    // NOTE immagini nei 4 angoli
     .side {
       width: 10%;
       height: 25%;
     }
 
-    // sezione centrale (asse orizzontale)
+    // NOTE sezione centrale (asse orizzontale)
     .centerX {
       width: 80%;
     }
 
-    // immagine centrale compresa tra i due angoli (sull'asse verticale)
+    // NOTE immagine centrale compresa tra i due angoli (sull'asse verticale)
     .side.centerY {
       height: 50%;
     }
@@ -96,15 +101,21 @@
 
     .part5 {
       background-position: left top;
+      position: relative;
+
+      p {
+        position: absolute;
+        left: 15%;
+        top: -5%;
+        color: $white;
+        font-size: 3.4em;
+        letter-spacing: 0.02em;
+        line-height: 1.1em;
+      }
     }
 
     .part6 {
       background-position: left -30px top -50px;
-      position: relative;
-
-      .slice-icon-circle {
-        bottom: 25px;
-      }
     }
 
     .part7 {
@@ -120,14 +131,8 @@
       background-position: bottom 38% right 98%;
     }
 
-    p {
-      position: absolute;
-      left: 24%;
-      top: 22%;
-      color: $white;
-      font-size: 3em;
-      letter-spacing: 0.02em;
-      line-height: 1.15em;
+    .slice-icon-circle {
+      bottom: 30%;
     }
   }
 </style>

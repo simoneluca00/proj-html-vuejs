@@ -1,16 +1,17 @@
 <template>
     <section id="specials">
-        
+
         <div class="img-specials">
-            <img src="../../../assets/img/h1-img-4.jpg" alt="img sezione specials">
+            <img src="@/assets/img/h1-img-4.jpg" alt="img sezione specials">
         </div>
 
         <div class="text-specials">
             <div class="combos">
                 <h2>specials*</h2>
-                <p class="main-caption fw-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesent ut.</p>
+                <p class="main-caption fw-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesent ut.
+                </p>
 
-                <!-- v-for che stampa dinamicamente le singole combo possibili -->
+                <!-- NOTE v-for che stampa dinamicamente le info delle singole combo presenti nel menu -->
                 <div class="combo-list" v-for="(item,i) in specials" :key="i">
                     <div>
                         <span class="combo-price fw-500">
@@ -69,15 +70,20 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #specials {
         @include compileFlex(nowrap, center, center);
         padding-top: 5px;
         background-color: $bg-white-opac;
+        min-height: 70vh;
+
+        .img-specials,
+        .text-specials {
+            width: 50%;
+        }
 
         .img-specials {
-            width: 50%;
 
             img {
                 width: 100%;
@@ -85,13 +91,23 @@
             }
         }
 
+        .text-specials,
+        .combos {
+            height: 100%;
+        }
+
         .text-specials {
             @include compileFlex(nowrap, center, center);
-            width: 50%;
             position: relative;
 
             .combos {
                 width: 55%;
+                padding: 50px 0;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
 
                 h2 {
                     font-size: 2.6em;
@@ -123,6 +139,7 @@
                     .sub-caption {
                         color: $text-subcaption;
                         font-size: 0.9em;
+                        max-width: 300px;
                     }
                 }
             }

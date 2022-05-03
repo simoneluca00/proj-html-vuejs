@@ -2,18 +2,21 @@
     <section id="booking" class="bg-white">
         <div class="main-container">
             <div class="centred">
+
                 <div class="number-booking">
-                    <!-- pseudo-icona per input number -->
-                    <img src="../../../assets/img/users-icon.png" alt="users icon">
-                    <input type="number" placeholder="1 Person" min="1">
+                    <!-- NOTE pseudo-icona per input number (p. absolute) -->
+                    <img src="@/assets/img/users-icon.png" alt="users icon">
+                    <input type="number" placeholder="1 Person" min="1" required>
                 </div>
 
                 <span class="text-divisor">for</span>
-
-                <input type="date" value="2022-05-03">
+                
+                <!-- NOTE input date -->
+                <input type="date" value="2022-05-03" required>
 
                 <span class="text-divisor">at</span>
 
+                <!-- NOTE input time -->
                 <input type="time" id="appt" name="appt" min="11:00" max="22:00" value="19:00" required>
 
                 <button class="btn btn-primary">book a table</button>
@@ -25,7 +28,6 @@
 </template>
 
 <script>
-
     export default {
         name: 'BookingSection',
 
@@ -39,16 +41,17 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #booking {
         height: 30vh;
+        min-height: 250px;
         padding: 5px 0;
 
         .main-container {
             @include compileFlex(initial, center, center);
             flex-direction: column;
-            background-image: url('../../../assets/img/h3-background-img-3.jpg');
+            background-image: url('@/assets/img/h3-background-img-3.jpg');
             background-size: cover;
             background-position: right;
             height: 100%;
@@ -97,17 +100,18 @@
 
                     &[type=date]::-webkit-calendar-picker-indicator,
                     &[type=time]::-webkit-calendar-picker-indicator {
-                        background-size: 170%;
                         background-position: center;
                         cursor: pointer;
                     }
 
                     &[type=date]::-webkit-calendar-picker-indicator {
-                        background-image: url('../../../assets/img/calendar-icon.png');
+                        background-image: url('@/assets/img/calendar-icon.png');
+                        background-size: 200%;
                     }
 
                     &[type=time]::-webkit-calendar-picker-indicator {
-                        background-image: url('../../../assets/img/clock-icon.png');
+                        background-image: url('@/assets/img/clock-icon.png');
+                        background-size: 170%;
                     }
 
                     &[type=number]::-webkit-inner-spin-button {

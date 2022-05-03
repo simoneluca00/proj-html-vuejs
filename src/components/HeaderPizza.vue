@@ -29,32 +29,29 @@
 </script>
 
 <style lang="scss">
-    @import '../style/global.scss';
+    @import '@/style/global.scss';
+
+    nav,
+    .menu,
+    ul.links {
+        @include compileFlex(nowrap, space-between, center);
+    }
 
     nav {
-        @include compileFlex(nowrap, space-between, center);
         height: 100%;
         width: 80%;
         margin: 0 auto;
         color: $white;
 
-        .menu {
-            @include compileFlex(nowrap, space-between, center);
+        li {
+            display: flex;
+            align-items: center;
 
-            ul.links {
-                @include compileFlex(nowrap, space-between, center);
-                list-style-type: none;
+            a {
+                color: $white;
+                font-size: 0.9em;
             }
-                li {
-                    @include compileFlex(nowrap, initial, center);
-
-                    a {
-                        text-decoration: none;
-                        color: $white;
-                        font-size: 0.9em;
-                    }
-                }
-
         }
+
     }
 </style>

@@ -10,7 +10,7 @@
 
                 <ul>
 
-                    <!-- ternario per impostare la classe (border-bottom) a tutti gli elementi eccetto l'ultimo  -->
+                    <!-- NOTE ternario per impostare la classe (border-bottom) a tutti gli elementi eccetto l'ultimo  -->
                     <li class="single-event" :class="(i !== events.length - 1) ? 'border-events' : ''" v-for="(element,i) in events" :key="i">
                         <div class="event-date">
                             <span class="event-day fw-600">{{element.day}}</span>
@@ -80,16 +80,17 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #events {
         display: flex;
         align-items: center;
         height: 85vh;
+        min-height: 700px;
         position: relative;
 
         .border-events {
-            border-bottom: 3px dotted $bg-slider-dots;
+            border-bottom: 3px dotted $bg-slider-dot;
         }
 
         .events-wrapper,
@@ -110,7 +111,7 @@
                 height: 90%;
                 overflow-y: auto;
 
-                &::-webkit-scrollbar{
+                &::-webkit-scrollbar {
                     display: none;
                 }
 
@@ -124,7 +125,6 @@
                 }
 
                 ul {
-                    list-style-type: none;
                     flex-grow: 1;
 
                     .single-event {
@@ -159,7 +159,7 @@
                                 margin-bottom: 5px;
                                 color: $text-events;
                                 font-size: 1.4em;
-                                width: 370px;
+                                max-width: 370px;
                             }
 
                             .event-location {

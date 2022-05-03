@@ -12,7 +12,7 @@
                     </li>
                     <li class="footer-credits">
                         <span class="credits-intro fw-300">Created with &#9825; by </span>
-                        <span class="credits-end fw-300">Qode Interactive</span>
+                        <a href="#qode" class="credits-end fw-300">Qode Interactive</a>
                     </li>
                 </ul>
             </div>
@@ -149,7 +149,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../style/global.scss';
+    @import '@/style/global.scss';
 
     .text-primary {
         color: $text-primary !important;
@@ -167,19 +167,21 @@
         }
 
         #footer-info {
-            @include compileFlex(initial, space-between, initial);
+            display: flex;
+            justify-content: space-between;
             position: relative;
             background: $bg-dark-stars;
-            padding: 30px 20px 20px 20px;
+            padding: 30px 20px;
             width: 50%;
 
             .find-us,
             .working-hours,
             .footer-caption {
-                padding: 30px 0;
+                margin: 30px 0;
             }
 
-            span {
+            span,
+            .credits-end {
                 text-transform: initial;
                 color: $text-footer;
                 font-family: sans-serif;
@@ -190,14 +192,10 @@
                 color: $text-camel;
             }
 
-            ul {
-                list-style-type: none;
-
-                li:not(.footer-credits, .footer-social) {
-                    display: flex;
-                    flex-direction: column;
-                    margin: 25px 0;
-                }
+            li:not(.footer-credits, .footer-social) {
+                display: flex;
+                flex-direction: column;
+                margin: 25px 0;
             }
 
             .find-us {

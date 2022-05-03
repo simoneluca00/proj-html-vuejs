@@ -13,15 +13,16 @@
             </svg>
 
             <div class="slider-content">
-                <img src="../../../assets/img/double-quotes.png" alt="double quotes" class="double-quotes" />
+                <!-- NOTE doppio apice inserito come img perchè aumentando il valore di "font-size" c'era bisogno di usare margine negativo -->
+                <img src="@/assets/img/double-quotes.png" alt="double quotes" class="double-quotes" />
 
-                <!-- immagine corrente basata sul "currentIndex" che, essendo dinamico, va a sostituire l'indice per l'array che contiene le recensioni -->
+                <!-- NOTE testo attuale basato sul "currentIndex", che va a sostituire l'indice dell'array che contiene le info -->
                 <p class="review">
                     “ {{testimonials[currentIndex].review}} ”
                 </p>
                 <p class="paper">{{testimonials[currentIndex].paper}}</p>
 
-                <!-- puntini che corrispondono all'immagine corrente (ternario per dinamicizzare la classe dell'immagine corrente) -->
+                <!-- NOTE dots che corrispondono al numero di elementi dell'array (ternario per dinamicizzare la classe in base al testo attuale) -->
                 <div class="imgDots">
                     <button class="dot" :class="(i == currentIndex ? 'currentDot': '') "
                         v-for="(item, i) in testimonials" :key="'a' + i" @click="clickDots(i)">
@@ -29,7 +30,7 @@
                 </div>
             </div>
 
-            <!-- pseudo-link per andare avanti o indietro con le immagini -->
+            <!-- NOTE opzioni SUCCESSIVO e PRECEDENTE -->
             <div class="prev">
                 <a @click.prevent="prev" href="">prev</a>
             </div>
@@ -81,7 +82,7 @@
                 }
             },
 
-            // quando si clicca sul singolo puntino il "currentIndex" diventa uguale alll'indice del puntino cliccato
+            // click sul singolo puntino --> "currentIndex" assume il valore dell'indice cliccato
             clickDots(indexImage) {
                 this.currentIndex = indexImage;
             }
@@ -91,13 +92,12 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     #testimonials {
 
         .slider {
-            background: $bg-icons-primary url('../../../assets/img/h3-testimonials-bckgrnd.jpg') no-repeat bottom center;
-            height: 60vh;
+            background: $bg-icons-primary url('@/assets/img/h3-testimonials-bckgrnd.jpg') no-repeat center;
             position: relative;
 
             .slice-icon-circle {
@@ -105,9 +105,10 @@
             }
 
             .slider-content {
+                height: 60vh;
+                min-height: 500px;
                 @include compileFlex (nowrap, center, center);
                 flex-direction: column;
-                height: 100%;
                 width: 50%;
                 margin: 0 auto;
                 text-align: center;
@@ -120,7 +121,7 @@
 
                 .review {
                     line-height: 1.4em;
-                    width: 630px;
+                    max-width: 630px;
                     margin-top: 40px;
                     color: $text-dark;
                     font-size: 1.1em;
@@ -154,7 +155,7 @@
                     }
 
                     .currentDot {
-                        background-color: $bg-slider-dots;
+                        background-color: $bg-slider-dot;
                     }
                 }
 

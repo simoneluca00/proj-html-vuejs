@@ -1,18 +1,20 @@
 <template>
     <div class="menu">
         <ul class="links">
-            <!-- voci del menu dx dinamiche -->
+            <!-- NOTE voci del menu dx dinamiche -->
             <li v-for="(element,index) in menuRightLinks" :key="index">
                 <a :href="element.url">{{element.name}}</a>
             </li>
         </ul>
 
-        <!-- opzioni CARRELLO e CERCA  -->
+        <!-- NOTE opzioni CARRELLO e CERCA  -->
         <ul class="optionHeader">
             <li>
+
                 <div class="icon-cart">
-                    <!-- numero di elementi aggiunti al carrello in position absolute rispetto all'icona -->
-                    <div class="pseudo-counter">0</div>
+                    <!-- NOTE numero di elementi aggiunti al carrello in position absolute rispetto all'icona -->
+                    <div class="pseudo-counter">{{counterCart}}</div>
+                    
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20">
                         <path fill="currentColor"
                             d="M23 20c-2.2 0-4-1.8-4-4 0-.2 0-.4.1-.7.1-.3.3-.4.6-.4.3.1.4.3.4.6v.4c0 1.7 1.3 3 3 3s3-1.3 3-3c0-.7-.2-1.3-.6-1.8-.2-.2-.1-.5.1-.7.2-.2.5-.1.7.1.5.7.8 1.6.8 2.5-.1 2.2-1.9 4-4.1 4zM6 20c-1 0-1.9-.4-2.6-1-.7-.6-1.2-1.5-1.3-2.4-.1-.3.1-.6.4-.6.2 0 .5.2.5.4.2 1.5 1.5 2.6 3 2.6s2.8-1.1 3-2.6c0-.2.3-.4.5-.4.3 0 .5.3.4.6-.1.9-.6 1.8-1.3 2.4-.7.6-1.6 1-2.6 1z" />
@@ -24,12 +26,15 @@
                             d="M18.5 4c-.2 0-.4-.1-.4-.3l-.5-1.1c-.1-.2 0-.5.2-.7.2-.1.5 0 .7.2l.5 1.1c.1.2 0 .5-.2.7-.1.1-.2.1-.3.1zM23 18.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5zm0-4c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zM25 12.6c-.1 0-.3-.1-.4-.2-.5-.6-1.2-1-2-1.3-.6-.1-1.1-.1-1.1-.1-.3 0-.5-.2-.5-.5s.2-.5.5-.5c.1 0 2.3-.1 3.9 1.8.2.2.2.5-.1.7-.1 0-.2.1-.3.1zM11.5 15c-.3 0-.5-.2-.5-.5 0-1.4-1.1-2.5-2.5-2.5H6.7c-.7 0-1.3.3-1.8.7l-2.1 2.1c-.2.2-.5.2-.7 0-.2-.2-.2-.5 0-.7L4.3 12c.7-.7 1.5-1 2.5-1h1.8c1.9 0 3.5 1.6 3.5 3.5-.1.3-.3.5-.6.5zM6 18.5c-1.1 0-2.1-.8-2.4-1.9-.1-.3.1-.5.4-.6.3-.1.5.1.6.4.1.6.7 1.1 1.4 1.1s1.3-.5 1.4-1.1c.1-.3.3-.4.6-.4.3.1.4.3.4.6-.3 1.1-1.3 1.9-2.4 1.9z" />
                     </svg>
                 </div>
+
                 <a href="#">cart</a>
             </li>
+
             <li class="search">
                 <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                 <a href="#">search</a>
             </li>
+
         </ul>
     </div>
 </template>
@@ -40,6 +45,9 @@
 
         data() {
             return {
+
+                counterCart: 0,
+
                 menuRightLinks: [{
                         name: 'event',
                         url: '#events',
@@ -52,7 +60,7 @@
                     },
                     {
                         name: 'landing',
-                        url: '#team',
+                        url: '#booking',
                         icon: null,
                     },
                 ],
@@ -63,54 +71,48 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
-    .menu {
+    .menu,
+    .links {
         width: 40%;
+    }
 
-        .links {
-            width: 38%;
-        }
+    ul.optionHeader {
+        display: flex;
+        align-items: center;
 
-        ul.optionHeader {
-            @include compileFlex(initial, initial, center);
+        li {
+            margin: 0 10px;
+            height: 35px;
 
-            li {
-                margin: 0 10px;
-
-                .icon-cart {
-                    position: relative;
+            .icon-cart {
+                position: relative;
 
 
-                    .pseudo-counter {
-                        position: absolute;
-                        left: -10px;
-                        top: -3px;
-                        padding: 2px 5px;
-                        border-radius: 50%;
-                        color: $text-primary;
-                        background-color: $bg-icons-primary;
-                        font-family: sans-serif;
-                        font-size: 0.7em;
-                    }
-                }
-
-                li.search {
-                    @include compileFlex(nowrap, initial, center);
-                }
-
-                svg,
-                .fa-magnifying-glass {
-                    margin-right: 5px;
-                }
-
-                .fa-magnifying-glass {
-                    transform: rotateY(160deg);
-                    font-size: 1.1em;
-
+                .pseudo-counter {
+                    position: absolute;
+                    left: -10px;
+                    top: -3px;
+                    padding: 2px 5px;
+                    clip-path: circle();
+                    color: $text-primary;
+                    background-color: $bg-icons-primary;
+                    font-family: sans-serif;
+                    font-size: 0.7em;
                 }
             }
-        }
 
+            svg,
+            .fa-magnifying-glass {
+                margin-right: 5px;
+            }
+
+            .fa-magnifying-glass {
+                transform: rotateY(160deg);
+                font-size: 1.1em;
+
+            }
+        }
     }
 </style>

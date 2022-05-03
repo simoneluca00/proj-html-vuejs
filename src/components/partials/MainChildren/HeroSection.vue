@@ -1,29 +1,43 @@
 <template>
     <section id="hero">
         <div class="slider">
-            <!-- slider con path bg e img dinamico in base al "currentIndex" e il nome delle singole immagini -->
-            <div class="singleImage" :style="{ backgroundImage: 'url(' + require('@/assets/img/'+ pathBgString) + ')' }"
-                @mouseover="stopSlider" @mouseout="startSlide">
+
+            <!-- NOTE SLIDER: path bg e img dinamici in base al valore di "currentIndex" && al nome delle singole immagini -->
+
+            <div class="singleImage" @mouseover="stopSlider" @mouseout="startSlide" 
+                :style="{ backgroundImage: 'url(' + require('@/assets/img/'+ pathBgString) + ')' }">
+
                 <img :src="require('@/assets/img/' + pathImageString)" alt="pizza slice">
+
             </div>
 
             <div class="prev">
                 <a @click.prevent="prev" href="">prev</a>
             </div>
+
             <div class="next">
                 <a @click.prevent="next" href="">next</a>
             </div>
+
         </div>
 
-        <div class="heroCards">
-            <!-- v-for con path dinamico per le immagini (cards sotto lo slider) -->
-            <div v-for="i in 4" :key="i" class="hCard" :class="[i != 4 ? 'mr-5' : '']" @mouseover="showByIndex = i" @mouseout="showByIndex = null">
-                <img :src="require('@/assets/img/heroCard' + i + '.jpg')" alt="hero card" :class="[showByIndex === i ? 'opacity-6' : '']">
 
-                <!-- effetto all'hover basato sul v-show e la variabile "showByIndex" -->
+        <!-- NOTE cards al di sotto dello slider -->
+        <div class="heroCards">
+
+            <!-- NOTE v-for con path dinamico per le immagini-->
+            <div v-for="i in cardsCounter" :key="i" 
+                class="hCard" :class="[i != cardsCounter ? 'mr-5' : '']"
+                @mouseover="showByIndex = i" @mouseout="showByIndex = null">
+
+                <img :src="require('@/assets/img/heroCard' + i + '.jpg')" alt="hero card"
+                    :class="[showByIndex === i ? 'opacity-6' : '']">
+
+                <!-- NOTE effetto all'hover basato sul v-show e la variabile "showByIndex" -->
                 <div v-show="showByIndex === i">
                     <font-awesome-icon icon="fa-regular fa-eye" />
                 </div>
+
             </div>
         </div>
     </section>
@@ -35,12 +49,14 @@
 
         data() {
             return {
-                // data per lo slider
+
+                // slider
                 timer: null,
                 currentIndex: 1,
-                imagesCount: 3,
+                imagesSlider: 3,
 
-                // data per hover sulle hero cards (sotto lo slider)
+                // hero cards
+                cardsCounter: 4,
                 showByIndex: null,
             }
         },
@@ -50,42 +66,42 @@
         },
 
         methods: {
-            // slide successiva automaticamente con intervallo settato
+            // NOTE slide successiva automaticamente con intervallo settato
             startSlide() {
                 this.timer = setInterval(this.next, 3000)
             },
 
-            // stoppare lo slider (hover)
-            stopSlider: function () {
+            // NOTE stoppare lo slider (hover)
+            stopSlider() {
                 clearInterval(this.timer);
                 this.timer = null;
             },
 
-            // slide successiva (click)
-            next: function () {
+            // NOTE slide successiva (click)
+            next() {
                 this.currentIndex += 1;
-                if (this.currentIndex > this.imagesCount) {
+                if (this.currentIndex > this.imagesSlider) {
                     this.currentIndex = 1;
                 }
             },
 
-            // slide precedente (click)
-            prev: function () {
+            // NOTE slide precedente (click)
+            prev() {
                 this.currentIndex -= 1;
                 if (this.currentIndex < 1) {
-                    this.currentIndex = this.imagesCount;
+                    this.currentIndex = this.imagesSlider;
                 }
             }
         },
 
         computed: {
 
-            // genera path dinamico in per immagine di background
+            // NOTE genera path dinamico in per immagine di background
             pathBgString() {
                 return `hero${this.currentIndex}a.png`
             },
 
-            // genera path dinamico in per immagine centrale (trancio)
+            // NOTE genera path dinamico in per immagine centrale (trancio)
             pathImageString() {
                 return `hero${this.currentIndex}b.png`
             },
@@ -96,7 +112,7 @@
 </script>
 
 <style lang="scss">
-    @import '../../../style/global.scss';
+    @import '@/style/global.scss';
 
     .opacity-6 {
         opacity: 0.6;
@@ -104,17 +120,22 @@
 
     #hero {
         background: $bg-dark-stars;
-        
+
+        .singleImage,
+        .heroCards {
+            @include compileFlex(nowrap, center, center);
+        }
+
         .slider {
             position: relative;
             padding-bottom: 40px;
 
             .singleImage {
-                @include compileFlex(nowrap, center, center);
                 background-repeat: no-repeat;
                 background-position: center;
                 padding: 20px 0;
-                height: 65vh;
+                height: 55vh;
+                min-height: 450px;
                 transition: all .5s;
 
 
@@ -133,7 +154,6 @@
         }
 
         .heroCards {
-            @include compileFlex(nowrap, center, center);
             background-color: $white;
             padding-top: 5px;
 
